@@ -1,0 +1,80 @@
+<%= render "shared/hedder" %>
+
+<h2>施設一覧</h2>
+
+<% if flash[:notice] %>
+<p class="notice"><%= flash[:notice] %></p>
+<% end %>
+
+<% if flash[:yoyaku] %>
+<p class="yoyaku"><%= flash[:yoyaku] %></p>
+<% end %>
+
+
+<tbody>	
+<div class="recipe-form">
+<%= search_form_for @search, url: result_rooms_path do |f| %>
+<div class="form-group">
+    <label class="text-secondary">キーワード検索</label><br />
+    <%= f.search_field :name_or_syoukai_cont, class: "form-control"%>
+</div>
+<div class="form-group">
+    <label class="text-secondary">エリア検索</label><br />
+    <%= f.select :address_eq, [['東京'], ['大阪'], ['京都'],['札幌']],
+    {include_blank: '選択なし'}, class: "form-control"%>
+</div>
+
+
+<div class="actions">
+    <%= f.submit '検索', class: "btn btn-primary" %>
+</div>
+<% end %>
+</div>
+
+
+    <section class="main">
+    <div class="sisetu">
+    <table>
+
+    <tr>
+        <th></th>
+        <th>施設画像</th>
+        <th>施設名</th>
+        <th>施設紹介</th>
+        <th>料金</th>
+        <th>作成日</th>
+    </tr>
+
+    <% @rooms.each do |room| %>
+    <tr>
+
+        <td><%= room.id %></td>
+        <td><%= image_tag "#{room.avatar}",class:'image' %></td>
+        <td><%= link_to room.name, "/rooms/#{room.id}" %></td>
+        <td><%= room.syoukai %></td>
+        <td><%= room.money %></td>
+        <td><%= room.created_at.strftime('%Y/%m/%d ')  %></td>
+        
+    </tr>
+
+    <% end %>
+    
+    </table>
+
+    </div>
+
+
+    </section>
+
+    <section class="footer">
+
+    </section>
+
+</tbody>
+
+<%= link_to "施設新規登録", "/rooms/new" %>
+<div class="log_out"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></div>
+
+<% content_for :css do %>
+    <%= stylesheet_link_tag 'index' %>
+<% end %>

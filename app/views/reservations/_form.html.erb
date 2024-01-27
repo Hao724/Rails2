@@ -1,0 +1,32 @@
+
+
+<%= form_with model: @reservation do |form| %>
+
+        <div>
+        <%= form.label :チェックイン %>
+        <%= form.date_field :start_day %>
+        </div>
+    
+        <div>
+        <%= form.label :チェックアウト %>
+        <%= form.date_field :end_day %>
+        </div>
+    
+        <div>
+        <%= form.label :人数 %>
+        <%= form.text_field :ninzuu %>
+        </div>
+
+        <div>
+        <%= form.hidden_field :user_id, :value => current_user.id%>
+        </div>
+
+        <div>
+        <%= form.hidden_field :room_id, :value => @room.id%>
+        </div>
+    
+        <div>
+        <%= form.submit "予約" %>
+        </div>
+
+        <%end%>

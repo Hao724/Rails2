@@ -1,0 +1,35 @@
+.drop {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0px;
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #ccc;
+    z-index: 999;
+    width: 100px;
+  }
+  
+  .name {
+    position: relative;
+  }
+  
+  .name ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size:15px;
+  }
+  
+  .drop a {
+    color: #5c3e26;
+    text-decoration: none;
+  }
+  
+  .drop a:hover {
+    color: #8b5c38;
+  }
+  
+  .category-container:hover {
+    cursor: pointer;
+  }

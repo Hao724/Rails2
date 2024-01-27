@@ -1,0 +1,27 @@
+<section class="header">
+
+<div class="ikon">
+<% if @user.avatar? %>
+<%= image_tag @user.avatar.url,class:'img' %>
+<% else %>
+<%= image_tag ("noavatar.png") %>
+<% end %>
+</div>
+
+
+<div class="name" id="name"><button class="btn" style="background-color: green; color: white;"><%= @user.name %></button>
+    <div class="drop" id="drop">
+    <ul>
+        <li><%= link_to 'マイページ', "/users/#{@user.id}" %></li>
+        <li><%= link_to '施設新規登録',"/rooms/new" %></li>
+        <li><%= link_to '予約済み一覧',"/users/kakunin/#{@user.id}" %></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+    </ul>
+    </div>
+</div>
+
+</section>
+
+<% content_for :css do %>
+    <%= stylesheet_link_tag 'hedder' %>
+<% end %>

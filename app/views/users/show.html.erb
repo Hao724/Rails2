@@ -1,0 +1,44 @@
+<section class="header">
+
+<div class="ikon">
+<% if @user.avatar? %>
+<%= image_tag @user.avatar.url,class:'img' %>
+<% else %>
+<%= image_tag ("noavatar.png") %>
+<% end %>
+</div>
+
+
+<div class="drop" id="drop"><%= "#{@user.name}" %> </div>
+
+</section>
+
+<section class="body">
+<div class="pro">
+<ul>
+<li class="list">アイコン</br>
+<% if @user.avatar? %>
+<%= image_tag @user.avatar.url,class:'gazou' %>
+<% else %>
+<%= image_tag ("noavatar.png") %>
+<% end %></li>
+
+<li class="list">名前</br>
+<input class="value" readonly type="text" value=<%= "#{@user.name}" %> ></li>
+<li class="list">メールアドレス</br>
+<input class="value" readonly type="text" value=<%= "#{@user.email}" %> ></li>
+<li class="list">パスワード</br>
+<input class="value" readonly type="text" value=<%= "********" %> ></li>
+<li class="list">自己紹介</br>
+<input class="int" readonly type="text" value=<%= "#{@user.introduction}" %>></input></li>
+</ul>
+</div>
+
+</section>
+
+<%= link_to "ユーザー情報編集", "/users/#{@user.id}/edit" %>
+<div class="log_out"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></div>
+
+<% content_for :css do %>
+    <%= stylesheet_link_tag 'show' %>
+<% end %>
