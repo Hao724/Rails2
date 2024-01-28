@@ -11,10 +11,11 @@
 <li class="list">アイコン</br>
 <div class="ikon">
 <% if @user.avatar? %>
-  <%= image_tag @user.avatar.url %>
+  <%= image_tag @user.avatar.url, class:'image'%>
 <% else %>
-  <%= image_tag ("default.png") %>
-<% end %></li>
+  <%= image_tag ("default.png"), class:'image'%>
+<% end %>
+</div></li>
 <li class="list">名前</br>
 <input class="value" readonly type="text" value=<%= "#{@user.name}" %> ></li>
 <li class="list">メールアドレス</br>

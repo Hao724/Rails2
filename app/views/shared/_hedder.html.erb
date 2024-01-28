@@ -2,16 +2,16 @@
 
 <div class="ikon">
 <% if @user.avatar? %>
-  <%= image_tag @user.avatar.url %>
+  <%= image_tag current_user.avatar.url, class:'image'%>
 <% else %>
-  <%= image_tag ("default.png") %>
+  <%= image_tag ("default.png"), class:'image'%>
 <% end %>
 </div>
 
 <div class="name" id="name"><button class="btn" style="background-color: green; color: white;"><%= current_user.name %></button>
     <div class="drop" id="drop">
     <ul>
-        <li><%= link_to 'マイページ', "/users/#{@user.id}" %></li>
+        <li><%= link_to 'マイページ',"/users/#{current_user.id}"%></li>
         <li><%= link_to 'トップページ', "/rooms/index" %></li>
         <li><%= link_to '施設新規登録',"/rooms/new" %></li>
         <li><%= link_to '予約済み一覧',"/users/kakunin/#{@user.id}" %></li>
