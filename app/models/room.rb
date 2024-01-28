@@ -11,7 +11,7 @@ validates :name, presence: true
 validates :syoukai, presence: true
 validates :money, presence: true, numericality: true, numericality: {greater_than_or_equal_to: 1}
 validates :address, presence: true
-validates :avatar, presence: true
+
 
 #確認画面
 validates_acceptance_of :confirming

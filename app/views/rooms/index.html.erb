@@ -41,7 +41,11 @@
     <tr>
 
         <td><%= room.id %></td>
-        <td><%= image_tag "#{room.avatar}",class:'image' %></td>
+        <td><% if room.avatar? %>
+        <%= image_tag room.avatar.url,class:'image'  %>
+        <% else %>
+        <%= image_tag ("default1.png"),class:'image' %>
+        <% end %></td>
         <td><%= link_to room.name, "/rooms/#{room.id}" %></td>
         <td><%= room.syoukai %></td>
         <td><%= room.money %></td>

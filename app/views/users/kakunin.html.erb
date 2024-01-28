@@ -20,7 +20,11 @@
 <tr>
 
     <td><%= reservation.id %></td>
-    <td><%= image_tag "#{reservation.room.avatar}",class:'image' %></td>
+    <td><% if reservation.room.avatar? %>
+    <%= image_tag reservation.room.avatar.url,class:'image'  %>
+    <% else %>
+    <%= image_tag ("default1.png"),class:'image' %>
+    <% end %></td>
     <td><%= reservation.room.name%></td>
     <td><%= reservation.room.syoukai %></td>
     <td><%= reservation.room.money * reservation.ninzuu * (reservation.end_day - reservation.start_day).to_i %>円</td>
@@ -28,7 +32,7 @@
     <td><%= reservation.end_day.strftime('%Y/%m/%d ')  %></td>
     <td><%= reservation.ninzuu.to_i %>人</td>
     <td><%= (reservation.end_day - reservation.start_day).to_i %>日</td>
-    <td><%= reservation.created_at.strftime('%Y/%m/%d ')  %>日</td>
+    <td><%= reservation.created_at.strftime('%Y/%m/%d %R')  %></td>
 </tr>
 
 <% end %>
