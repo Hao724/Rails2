@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 2024_01_11_183105) do
     t.datetime "remember_created_at"
     t.string "name"
     t.string "password"
+    t.string "password2"
     t.string "introduction"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

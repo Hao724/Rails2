@@ -34,6 +34,7 @@ def change
     
     t.string :name
     t.string :password
+    t.string :password2
     t.string :introduction
     t.timestamps null: false
     end
