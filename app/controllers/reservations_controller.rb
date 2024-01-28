@@ -12,7 +12,7 @@ class ReservationsController < ApplicationController
         @reservation = Reservation.new(params.permit(:start_day, :end_day, :ninzuu, :user_id, :room_id))
         @reservation.user = current_user
         if @reservation.save
-          flash[:yoyaku] = "予約を確定しました"
+          flash[:notice] = "予約を確定しました"
           redirect_to "/rooms/index"
         else
           @user = User.find_by(params[:user_id])

@@ -11,6 +11,7 @@ ja:
         syoukai: 施設紹介
         money: 金額
         address: 住所
+        avatar: 施設画像
       reservation:
         start_day: チェックイン
         end_day: チェックアウト

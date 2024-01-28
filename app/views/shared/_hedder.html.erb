@@ -3,8 +3,8 @@
 <div class="ikon">
 <% if @user.avatar? %>
 <%= image_tag @user.avatar.url,class:'img' %>
-<% else %>
-<%= image_tag ("noavatar.png") %>
+<%else%>
+<div class="nasi">
 <% end %>
 </div>
 
@@ -13,6 +13,7 @@
     <div class="drop" id="drop">
     <ul>
         <li><%= link_to 'マイページ', "/users/#{@user.id}" %></li>
+        <li><%= link_to 'トップページ', "/rooms/index" %></li>
         <li><%= link_to '施設新規登録',"/rooms/new" %></li>
         <li><%= link_to '予約済み一覧',"/users/kakunin/#{@user.id}" %></li>
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>

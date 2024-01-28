@@ -1,14 +1,6 @@
+<%= render "shared/hedder" %>
 <section class="header">
 
-<div class="ikon">
-<% if @user.avatar? %>
-<%= image_tag @user.avatar.url,class:'img' %>
-<% else %>
-<%= image_tag ("noavatar.png") %>
-<% end %>
-</div>
-
-<div class="drop" id="drop"><%= "#{@user.name}" %> </div>
 
 </section>
 

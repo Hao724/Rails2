@@ -1,3 +1,4 @@
+<%= render "shared/hedder" %>
 <h2>予約済み一覧</h2>
 
 <table>
@@ -12,6 +13,7 @@
     <th>チェックアウト</th>
     <th>宿泊人数</th>
     <th>宿泊日数</th>
+    <th>予約確定日時</th>
 </tr>
 
 <% @reservations.each do |reservation| %>
@@ -26,6 +28,7 @@
     <td><%= reservation.end_day.strftime('%Y/%m/%d ')  %></td>
     <td><%= reservation.ninzuu.to_i %>人</td>
     <td><%= (reservation.end_day - reservation.start_day).to_i %>日</td>
+    <td><%= reservation.created_at.strftime('%Y/%m/%d ')  %>日</td>
 </tr>
 
 <% end %>

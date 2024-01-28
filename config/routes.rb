@@ -2,12 +2,13 @@ Rails.application.routes.draw do
   
   #Userモデルのルーティング
   devise_for :users
+  delete 'signout', to: 'devise/sessions#destroy'
+
   root 'users#index'
   get 'users/index'
   get 'users/new', to: 'users#new'
   post 'users/new',to: 'users#create'
   post 'users/:id',to: 'users#update'
-  delete 'signout', to: 'devise/sessions#destroy'
   get '/users/kakunin/:id' => 'users#kakunin'
 
   resources :users do

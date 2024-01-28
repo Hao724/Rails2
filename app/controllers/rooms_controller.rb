@@ -21,7 +21,7 @@ class RoomsController < ApplicationController
       flash[:notice] = "宿泊施設を新規登録しました"
       redirect_to "/rooms/index"
     else
-      render "new"
+      redirect_to "/rooms/new"
     end
   end
 

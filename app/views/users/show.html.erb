@@ -1,15 +1,6 @@
+<%= render "shared/hedder" %>
 <section class="header">
 
-<div class="ikon">
-<% if @user.avatar? %>
-<%= image_tag @user.avatar.url,class:'img' %>
-<% else %>
-<%= image_tag ("noavatar.png") %>
-<% end %>
-</div>
-
-
-<div class="drop" id="drop"><%= "#{@user.name}" %> </div>
 
 </section>
 
@@ -17,11 +8,8 @@
 <div class="pro">
 <ul>
 <li class="list">アイコン</br>
-<% if @user.avatar? %>
-<%= image_tag @user.avatar.url,class:'gazou' %>
-<% else %>
-<%= image_tag ("noavatar.png") %>
-<% end %></li>
+
+
 
 <li class="list">名前</br>
 <input class="value" readonly type="text" value=<%= "#{@user.name}" %> ></li>
