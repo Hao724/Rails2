@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   end
   
   
+  
     #Roomモデルのルーティング
     get 'rooms/index',to: 'rooms#index'
     get 'rooms/new',to: 'rooms#new'

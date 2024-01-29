@@ -7,6 +7,9 @@ class ReservationsController < ApplicationController
   def new
     @reservation = Reservation.new
   end
+
+
+
   
   def create
         @reservation = Reservation.new(params.permit(:start_day, :end_day, :ninzuu, :user_id, :room_id))
