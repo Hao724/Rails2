@@ -1,0 +1,41 @@
+<%= render "shared/hedder" %>
+<section class="header">
+
+
+</section>
+
+<%= form_with model: @user do |form| %>
+
+    <div>
+    <%= form.label :名前 %>
+    <%= form.text_field :name %>
+    </div>
+    
+    <div>
+    <%= form.label :メールアドレス %>
+    <%= form.text_field :email %>
+    </div>
+
+    <div>
+    <%= form.label :パスワード %>
+    <%= form.password_field :password %>
+    </div>
+    
+    <div>
+    <%= form.label :自己紹介 %>
+    <%= form.text_area :introduction %>
+    </div>
+
+    <div>
+    <%= form.label :プロフィール画像 %>
+    <%= form.file_field :avatar %>
+    </div>
+
+    <%= form.submit "編集完了" %>
+<% end %>
+    
+<div class="log_out"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></div>
+
+<% content_for :css do %>
+    <%= stylesheet_link_tag 'show' %>
+<% end %>

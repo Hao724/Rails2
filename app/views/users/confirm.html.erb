@@ -1,0 +1,38 @@
+<h1>予約確認</h1>
+
+<table>
+
+<tr>
+    <th></th>
+    <th>合計料金</th>
+    <th>チェックイン</th>
+    <th>チェックアウト</th>
+    <th>宿泊人数</th>
+    <th>宿泊日数</th>
+    
+</tr>
+
+
+<% @reservations.each do |reservation| %>
+    <tr>
+    
+        <td><%= reservation.id %></td>
+        <td><%= reservation.room.money * reservation.ninzuu * (reservation.end_day - reservation.start_day).to_i %>円</td>
+        <td><%= reservation.start_day.strftime('%Y/%m/%d ')  %></td>
+        <td><%= reservation.end_day.strftime('%Y/%m/%d ')  %></td>
+        <td><%= reservation.ninzuu.to_i %>人</td>
+        <td><%= (reservation.end_day - reservation.start_day).to_i %>日</td>
+    </tr>
+    
+    <% end %>
+</table>
+
+<%= form_with model: @reservation, local: true, method: :post, url: reservations_create_path do |f| %>
+    <%= f.hidden :start_day %>
+    <%= f.hidden :end_day %>
+    <%= f.hidden :ninzuu %>
+    <%= f.hidden :user_id, :value => current_user.id%>
+    <%= f.hidden :room_id, :value => @room.id%>
+    <%= f.submit '送信する'%>
+  <% end %>
+

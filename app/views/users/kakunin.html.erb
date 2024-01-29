@@ -1,0 +1,44 @@
+<%= render "shared/hedder" %>
+<h2>予約済み一覧</h2>
+
+<table>
+
+<tr>
+    <th></th>
+    <th>施設画像</th>
+    <th>施設名</th>
+    <th>施設紹介</th>
+    <th>合計料金</th>
+    <th>チェックイン</th>
+    <th>チェックアウト</th>
+    <th>宿泊人数</th>
+    <th>宿泊日数</th>
+    <th>予約確定日時</th>
+</tr>
+
+<% @reservations.each do |reservation| %>
+<tr>
+
+    <td><%= reservation.id %></td>
+    <td><% if reservation.room.avatar? %>
+    <%= image_tag reservation.room.avatar.url,class:'image'  %>
+    <% else %>
+    <%= image_tag ("default1.png"),class:'image' %>
+    <% end %></td>
+    <td><%= reservation.room.name%></td>
+    <td><%= reservation.room.syoukai %></td>
+    <td><%= reservation.room.money * reservation.ninzuu * (reservation.end_day - reservation.start_day).to_i %>円</td>
+    <td><%= reservation.start_day.strftime('%Y/%m/%d ')  %></td>
+    <td><%= reservation.end_day.strftime('%Y/%m/%d ')  %></td>
+    <td><%= reservation.ninzuu.to_i %>人</td>
+    <td><%= (reservation.end_day - reservation.start_day).to_i %>日</td>
+    <td><%= reservation.created_at.strftime('%Y/%m/%d %R')  %></td>
+</tr>
+
+<% end %>
+
+</table>
+
+<%= link_to :back do %>
+    <button>戻る</button>
+<% end %>

@@ -1,0 +1,40 @@
+<%= render "shared/hedder" %>
+
+<h2>お部屋詳細</h2>
+
+<section class="body">
+<div class="pro">
+<ul>
+<li class="list">部屋画像</br>
+<% if @room.avatar? %>
+<%= image_tag @room.avatar.url %>
+<% else %>
+<%= image_tag ("default1.png") %>
+<% end %></li>
+
+
+<li class="list">施設名</br>
+<input class="value" readonly type="text" value=<%= "#{@room.name}" %> ></li>
+<li class="list">施設紹介</br>
+<input class="value" readonly type="text" value=<%= "#{@room.syoukai}" %> ></li>
+<li class="list">宿泊料金</br>
+<input class="value" readonly type="text" value=<%= "１泊/#{@room.money}円" %> ></li>
+<li class="list">住所</br>
+<input class="int" readonly type="text" value=<%= "#{@room.address}" %>></input></li>
+</ul>
+</div>
+
+
+<!-- 予約フォーム -->
+<%= render 'reservations/form' %>
+
+<%= link_to :back do %>
+    <button>戻る</button>
+<% end %>
+
+</section>
+
+
+<% content_for :css do %>
+    <%= stylesheet_link_tag 'show' %>
+<% end %>

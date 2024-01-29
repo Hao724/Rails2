@@ -1,0 +1,45 @@
+
+
+<h1>検索結果<h1>
+
+<section class="main">
+    <div class="sisetu">
+    <table>
+
+    <tr>
+        <th></th>
+        <th>施設画像</th>
+        <th>施設名</th>
+        <th>施設紹介</th>
+        <th>料金</th>
+        <th>作成日</th>
+    </tr>
+
+    <% @rooms.each do |room| %>
+    <tr>
+
+        <td><%= room.id %></td>
+        <td><% if room.avatar? %>
+        <%= image_tag room.avatar.url,class:'image'  %>
+        <% else %>
+        <%= image_tag ("default1.png"),class:'image' %>
+        <% end %></td>
+        <td><%= link_to room.name, "/rooms/#{room.id}" %></td>
+        <td><%= room.syoukai %></td>
+        <td><%= room.money %></td>
+        <td><%= room.created_at %></td>
+        
+    </tr>
+    
+    <% end %>
+
+    </table>
+
+
+    <%= page_entries_info @rooms %>
+
+
+    <%= link_to :back do %>
+        <button>戻る</button>
+    <% end %>
+    

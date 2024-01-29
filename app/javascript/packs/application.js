@@ -11,3 +11,17 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+document.addEventListener('turbolinks:load', function() {
+    const mypageBtnContainer = document.getElementById('name');
+      const mypageDropdown = document.getElementById('drop');
+    
+      if (mypageBtnContainer) {
+        mypageBtnContainer.addEventListener('mouseover', function() {
+          mypageDropdown.style.display = 'block';
+        });
+    
+        mypageBtnContainer.addEventListener('mouseout', function() {
+          mypageDropdown.style.display = 'none';
+        });
+      }});

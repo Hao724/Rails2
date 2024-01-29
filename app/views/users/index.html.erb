@@ -1,0 +1,20 @@
+<% if user_signed_in? %> <!-- ユーザーがログインしているか調べる -->
+<%= link_to "ログイン", "/rooms/index" %>
+
+<% else %>
+<!-- ユーザーがログインしていなかった時の処理 -->
+<header>
+<div class="header">
+<h1 class="title">宿泊予約アプリ</h1>
+<ul>
+<li class="item"><%= link_to "ログイン", new_user_session_path, class: 'post' %> <!-- ログイン画面に移行する --></li>
+<li class="item"><%= link_to "新規登録",  "/users/new" %> <!-- 新規登録画面に移行する --></li>
+</ul>
+</div>
+</header>
+
+<% end %>
+
+<% content_for :css do %>
+    <%= stylesheet_link_tag 'index' %>
+<% end %>

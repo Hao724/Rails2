@@ -1,0 +1,43 @@
+<%= render "shared/hedder" %>
+
+<h2>施設新規登録<h2>
+<%= render "shared/error", obj: @room %>
+
+<%= form_with model: @room do |form| %>
+
+    <div>
+    <%= form.label :施設名 %>
+    <%= form.text_field :name %>
+    </div>
+
+    <div>
+    <%= form.label :施設紹介 %>
+    <%= form.text_area :syoukai %>
+    </div>
+
+    <div>
+    <%= form.label :料金 %>
+    <%= form.text_field :money %>
+    </div>
+
+    <div>
+    <%= form.label :住所 %>
+    <%= form.text_field :address %>
+    </div>
+
+    <div>
+    <%= form.label :施設画像 %>
+    <%= form.file_field :avatar %>
+    </div>
+
+
+    <div>
+    <%= form.submit "新規登録" %>
+    </div>
+
+    <%= link_to :back do %>
+        <button>戻る</button>
+    <% end %>
+    
+
+    <% end %>
